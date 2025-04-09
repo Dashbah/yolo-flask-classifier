@@ -12,17 +12,17 @@ A lightweight Flask microservice for image classification using a pretrained **Y
 ```
 ml_classifier_app/
 ├── app/
-│   ├── __init__.py        # Flask app factory
-│   ├── routes.py          # /predict endpoint
-│   ├── model.py           # YOLO model logic
+│   ├── __init__.py        # Flask application factory
+│   ├── routes.py          # API routes (including /predict endpoint)
+│   ├── model.py           # YOLO model loading and inference logic
 │
 ├── model/
-│   └── best.onnx          # Your ONNX classification model
+│   └── best.onnx          # Pretrained ONNX classification model
 │
-├── uploads/               # Temporary upload directory
-├── run.py                 # App entrypoint
-├── requirements.txt       # Python dependencies
-└── README.md              # You're reading it :)
+├── uploads/               # Directory for temporary image uploads
+├── run.py                 # Application entry point
+├── requirements.txt       # Python dependencies list
+└── README.md              # Project documentation (this file)
 ```
 
 ---
