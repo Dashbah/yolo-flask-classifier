@@ -10,7 +10,7 @@ A lightweight Flask microservice for image classification using a pretrained **Y
 ## 📁 Project Structure
 
 ```
-yolo_flask_classifier/
+ml_classifier_app/
 ├── app/
 │   ├── __init__.py        # Flask app factory
 │   ├── routes.py          # /predict endpoint
