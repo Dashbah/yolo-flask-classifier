@@ -160,4 +160,3 @@ MIT – use this template freely for personal or academic use.
 
 ---
 
-Let me know if you want a version tailored for **FastAPI**, **Docker**, or with **Swagger docs** added too!
