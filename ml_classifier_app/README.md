@@ -1,6 +1,6 @@
 ### ✅ `README.md`
 
-```markdown
+
 # 🧠 YOLOv8 Classification Flask Microservice
 
 A lightweight Flask microservice for image classification using a pretrained **YOLOv8 (Ultralytics)** model in **classification mode** (ONNX format). This service accepts an image via HTTP POST and returns a prediction like `Dyslexic` or `Non_Dyslexic` with confidence.
@@ -9,7 +9,7 @@ A lightweight Flask microservice for image classification using a pretrained **Y
 
 ## 📁 Project Structure
 
-```
+```bash
 ml_classifier_app/
 ├── app/
 │   ├── __init__.py        # Flask application factory
