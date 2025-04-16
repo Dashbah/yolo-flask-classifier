@@ -1,7 +1,6 @@
 name: CI-ml-classifier-app
 
 on:
-  # Triggers the workflow on push or pull request events but only for the specified branch
   push:
     branches: [ "main", "devops/CI" ]
 
