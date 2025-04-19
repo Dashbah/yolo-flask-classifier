@@ -9,4 +9,6 @@ COPY . .
 
 ENV PYTHONPATH=/app
 
+RUN mkdir -p /app/models
+
 ENTRYPOINT ["python", "run.py"]
