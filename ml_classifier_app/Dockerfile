@@ -1,33 +1,9 @@
-# Используем многоэтапную сборку
-FROM python:3.8-slim as builder
-
-WORKDIR .
-
-# Устанавливаем только необходимые системные зависимости
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libgl1 \
-    libglib2.0-0 \
-    && rm -rf /var/lib/apt/lists/*
-COPY requirements.txt .
-RUN pip install --user -r requirements.txt
-
-# Второй этап - финальный образ
-FROM python:3.8-slim
-
-WORKDIR .
-
-# Копируем только необходимые файлы из builder
-COPY --from=builder /root/.local /root/.local
+FROM python:3.9-slim
+WORKDIR /app
 COPY . .
-
-# Модель монтируем через volume, не включаем в образ
-RUN mkdir -p /models
-
-# Очищаем кеш pip
-RUN rm -rf /root/.cache/pip
-
-# Добавляем .local в PATH
-ENV PATH=/root/.local/bin:$PATH \
-    PYTHONPATH=.
-
-ENTRYPOINT ["python", "run.py"]
+RUN apt-get update && apt-get install -y python3-opencv
+RUN pip install opencv-python
+RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 5000
+ENV FLASK_APP=app.py
+CMD ["flask", "run", "--host=0.0.0.0"]
