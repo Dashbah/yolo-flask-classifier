@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 import os
 
-model_path = os.path.join("models", "best.onnx")
+model_path = os.path.join("models", "best3.onnx")
 model = YOLO(model_path, task="classify")
 
 def classify_image(image_path):
