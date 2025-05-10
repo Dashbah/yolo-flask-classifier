@@ -2,6 +2,7 @@ from flask import Blueprint, request, Response
 import cv2
 import uuid
 import os
+from app.model import process_handwriting
 
 routes = Blueprint("routes", __name__)
 UPLOAD_FOLDER = "uploads"
