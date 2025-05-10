@@ -1,8 +1,11 @@
 FROM python:3.9-slim
 WORKDIR /app
 COPY . .
-RUN apt-get update && apt-get install -y python3-opencv
-RUN apt install tesseract-ocr libtesseract-dev
+RUN apt-get update && apt-get install -y \
+    python3-opencv \
+    tesseract-ocr \
+    libtesseract-dev \
+ && rm -rf /var/lib/apt/lists/*
 RUN pip install opencv-python
 RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 5000
