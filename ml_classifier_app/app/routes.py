@@ -1,8 +1,10 @@
 from flask import Blueprint, request, Response
-import cv2
 import uuid
 from app.model import process_handwriting
 import os
+import cv2
+
+from models import highlight_digits
 
 routes = Blueprint("routes", __name__)
 UPLOAD_FOLDER = "uploads"
@@ -12,6 +14,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 def analyze_handwriting():
     if "image" not in request.files:
         return {"error": "No image uploaded"}, 400
+
 
     # Save upload with UUID
     file = request.files["image"]
