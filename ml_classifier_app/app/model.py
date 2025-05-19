@@ -55,7 +55,7 @@ def process_handwriting(image_path):
             # Classify (only if we got a valid crop)
             if char_img.size > 0:
                 result = model.predict(char_img, imgsz=224, verbose=False)[0]
-                if hasattr(result, 'probs') and result.probs.top1 == 0:  # Assuming class 0 is dyslexic
+                if hasattr(result, 'probs') and result.probs.top1 == 1:  # Assuming class 0 is dyslexic
                     # Draw rectangle (matches highlighting approach)
                     cv2.rectangle(vis_img, 
                                 (char_x, y),
