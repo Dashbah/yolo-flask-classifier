@@ -4,8 +4,6 @@ from app.model import process_handwriting
 import os
 import cv2
 
-from models import highlight_digits
-
 routes = Blueprint("routes", __name__)
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
