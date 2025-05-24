@@ -22,12 +22,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_DASHBAH_USERNAME }}
           password: ${{ secrets.DOCKERHUB_DASHBAH_TOKEN }}
 
-      - name: Extract Docker metadata (tags and labels)
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ghcr.io/${{ github.repository }}
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -39,5 +33,4 @@ jobs:
         with:
           context: ./ml_classifier_app
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: dashbah/ml-classifier-app:${{ github.ref_name }}
