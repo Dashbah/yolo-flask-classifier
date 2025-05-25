@@ -3,7 +3,7 @@ import uuid
 import os
 import cv2
 
-from model import highlight_digits
+from models import highlight_digits
 
 routes = Blueprint("routes", __name__)
 UPLOAD_FOLDER = "uploads"
