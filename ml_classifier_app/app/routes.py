@@ -1,8 +1,9 @@
 from flask import Blueprint, request, Response
 import uuid
-from app.model import process_handwriting
 import os
 import cv2
+
+from model import highlight_digits
 
 routes = Blueprint("routes", __name__)
 UPLOAD_FOLDER = "uploads"
@@ -21,13 +22,8 @@ def analyze_handwriting():
     file.save(input_path)
 
     try:
-        # Process using your exact pipeline logic
-        annotated_img = process_handwriting(input_path)
-
-        # Convert to PNG bytes
+        annotated_img = highlight_digits(input_path)
         _, img_bytes = cv2.imencode(".png", annotated_img)
-
-        # Return as image/png
         return Response(img_bytes.tobytes(), mimetype="image/png")
 
     except Exception as e:
